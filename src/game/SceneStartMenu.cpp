@@ -9,7 +9,7 @@
 SceneStartMenu::SceneStartMenu(GameEngine* gameEngine) :
     Scene(gameEngine),
     m_title(m_game->getTitle()),
-    m_menuText(sf::Text(m_game->getAssets().getFont("Pixel"), "", 150))
+    m_menuText(sf::Text(m_game->getAssets().getFont("Tech"), "", 150))
 {
     init();
 }
@@ -147,12 +147,12 @@ void SceneStartMenu::sRender()
     float distanceBetweenStrings = window.getView().getSize().y / static_cast<float>(currentMenu.options.size() + 2);
 
     // Clear screen with the background colour
-    window.clear(sf::Color(244, 214, 204));
+    window.clear(sf::Color(235, 81, 96));
 
     // Set title text properties
     m_menuText.setString(currentMenu.title);
-    m_menuText.setCharacterSize(150);
-    m_menuText.setFillColor(sf::Color(244, 180, 96));
+    m_menuText.setCharacterSize(100);
+    m_menuText.setFillColor(sf::Color(7, 16, 19));
 
     // Set origin to center of text after changing string and character size, then set position with new origin
     sf::FloatRect textRect = m_menuText.getLocalBounds();
@@ -163,7 +163,7 @@ void SceneStartMenu::sRender()
     window.draw(m_menuText);
 
     // Set character size for selectable menu text
-    m_menuText.setCharacterSize(100);
+    m_menuText.setCharacterSize(80);
 
     // Draw selectable menu text
     for (size_t i = 0; i < currentMenu.options.size(); i++)
@@ -177,11 +177,11 @@ void SceneStartMenu::sRender()
 
         if (i == currentMenu.selectedIndex)
         {
-            m_menuText.setFillColor(sf::Color(74, 88, 89));
+            m_menuText.setFillColor(sf::Color(183, 153, 156));
         }
         else
         {
-            m_menuText.setFillColor(sf::Color::White);
+            m_menuText.setFillColor(sf::Color(223, 224, 226));
         }
 
         window.draw(m_menuText);
